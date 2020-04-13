@@ -98,7 +98,7 @@ describe('HeaderComponent', () => {
   it('login method authentication', () => {
     component.loginForm.controls.email.setValue('bruno@email.com');
     component.loginForm.controls.password.setValue('bruno');
-    component.logIn(component.loginForm);
+    component.logIn(component.loginForm.value);
     expect(sessionStorage.getItem('token')).toBeTruthy();
   });
 });

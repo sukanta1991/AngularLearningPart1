@@ -57,6 +57,11 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  // Function to clear all sessionStorage  items and reload to landing page
+  signOut() {
+
+  }
+
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnDestroy(): void {
     $(document.body).removeClass('modal-open');

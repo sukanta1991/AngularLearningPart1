@@ -25,7 +25,7 @@ In order to increase their product consumers Organic world needs a solution that
 
 ## TECH STACK
 
-- AngularJS
+- Angular8
 - Bootstrap
 - Jasmine
 - Protractor
