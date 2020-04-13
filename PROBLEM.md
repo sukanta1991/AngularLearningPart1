@@ -19,7 +19,7 @@ In order to increase their product consumers Organic world needs a solution that
 - The Account page should consist of information about the user which can be updated by user.
 - The cart page should consist of list of products added and their quantities and price in a table format and features like delete a product, update a product quantity,also a checkout button.
 
-## There would be three roles in this application. They would be allowed to perform activities based on their role
+## The roles in this application are
 
 - Consumer: View differents products available in store and buy directly through online transaction
 
