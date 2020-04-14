@@ -1,12 +1,13 @@
-import { CartProduct } from './../src/app/modals/cartProduct';
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from './../src/app/pages/header/header.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CartComponent } from '../src/app/pages/cart/cart.component';
+import { HeaderComponent } from './../src/app/pages/header/header.component';
 import { FooterComponent } from 'src/app/pages/footer/footer.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
+import { CartProduct } from './../src/app/modals/cartProduct';
+
 
 describe('CartComponent', () => {
   let component: CartComponent;
@@ -35,11 +36,11 @@ describe('CartComponent', () => {
     sessionStorage.setItem('cart', JSON.stringify(cart));
   }));
 
-  beforeEach(() => {
+  beforeEach( async(() => {
     fixture = TestBed.createComponent(CartComponent);
     component = fixture.componentInstance;
-
-  });
+    fixture.detectChanges();
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

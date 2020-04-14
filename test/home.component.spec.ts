@@ -1,11 +1,13 @@
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from './../src/app/pages/header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from '../src/app/pages/home/home.component';
 import { FooterComponent } from 'src/app/pages/footer/footer.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
+import { HeaderComponent } from './../src/app/pages/header/header.component';
+
+
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

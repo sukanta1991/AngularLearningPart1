@@ -1,4 +1,3 @@
-import { CartProduct } from './../src/app/modals/cartProduct';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,14 +8,12 @@ import { ProductService } from 'src/app/services/product.service';
 import { HeaderComponent } from 'src/app/pages/header/header.component';
 import { FooterComponent } from 'src/app/pages/footer/footer.component';
 import { Product } from 'src/app/modals/product';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { CartProduct } from './../src/app/modals/cartProduct';
+
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
-  let location: Location;
-  let router: Router;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -26,31 +23,29 @@ describe('ProductsComponent', () => {
     }).compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach( async( () => {
     fixture = TestBed.createComponent(ProductsComponent);
     component = fixture.componentInstance;
-    router = TestBed.get(Router);
-    location = TestBed.get(Location);
     fixture.detectChanges();
-  });
+  }));
 
-  it('should create', () => {
+  it('should create', async( () => {
     expect(component).toBeTruthy();
-  });
+  }));
 
-  it('should have add function', () => {
+  it('should have add function', async( () => {
     expect(component.add).toBeTruthy();
-  });
+  }));
 
-  it('should have changeQuantitiy function', () => {
+  it('should have changeQuantitiy function', async( () => {
     expect(component.changeQuantity).toBeTruthy();
-  });
+  }));
 
-  it('should have routeAnalyser function', () => {
+  it('should have routeAnalyser function', async( () => {
     expect(component.routeAnalyser).toBeTruthy();
-  });
+  }));
 
-  it('add method should add to seesionStorage item "cart" ', () => {
+  it('add method should add to sessionStorage item "cart" ', async( () => {
     const product: Product = {
       id: '11',
       image: '../../../assets/images/Green apple.jpeg',
@@ -62,9 +57,9 @@ describe('ProductsComponent', () => {
     component.add(product);
     const cart: CartProduct[] = JSON.parse(sessionStorage.getItem('cart'));
     expect(cart[cart.length - 1].productName).toEqual(product.name);
-  });
+  }));
 
-  it('should have routeAnalyser function', () => {
+  it('should have routeAnalyser function', async( () => {
     expect(component.routeAnalyser).toBeTruthy();
-  });
+  }));
 });

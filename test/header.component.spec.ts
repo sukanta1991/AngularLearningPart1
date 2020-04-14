@@ -1,39 +1,42 @@
 import { HttpClientModule } from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Location } from '@angular/common';
-
-import { HeaderComponent } from '../src/app/pages/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { HeaderComponent } from '../src/app/pages/header/header.component';
+import { LoginRegisterService } from 'src/app/services/login-register.service';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
-  let location: Location;
+  let fakeLogin: LoginRegisterService;
+  const payload = { email: 'bruno@email.com', password: 'bruno' };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
-      imports: [ReactiveFormsModule, RouterTestingModule, HttpClientModule]
-    })
-    .compileComponents();
+      declarations: [HeaderComponent],
+      imports: [ReactiveFormsModule, RouterTestingModule, HttpClientModule],
+    }).compileComponents();
+    fakeLogin = TestBed.get(LoginRegisterService);
+    fakeLogin.login(payload).subscribe((data) => {
+      sessionStorage.setItem('token', data.access_token);
+    });
   }));
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
     component.ngOnInit();
-    location = TestBed.get(Location);
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have createForm method', () => {
+  it('should have createForm method', async(() => {
     expect(component.createForm).toBeTruthy();
-  });
+  }));
 
   it('should have login method', () => {
     expect(component.logIn).toBeTruthy();
@@ -45,6 +48,10 @@ describe('HeaderComponent', () => {
 
   it('should have search method', () => {
     expect(component.search).toBeTruthy();
+  });
+
+  it('should have singOut method', () => {
+    expect(component.signOut).toBeTruthy();
   });
 
   it('should have loggedInCheck method', () => {
@@ -81,19 +88,19 @@ describe('HeaderComponent', () => {
     expect(email.valid).toBeFalsy();
   });
 
-  it('loginForm email field validity', () => {
+  it('loginForm email field validity', async(() => {
     let errors = {};
     const email = component.loginForm.controls.email;
     errors = email.errors || {};
     expect(errors['required']).toBeTruthy();
-  });
+  }));
 
-  it('registerForm email field validity', () => {
+  it('registerForm email field validity', async(() => {
     let errors = {};
     const email = component.registerForm.controls.email;
     errors = email.errors || {};
     expect(errors['required']).toBeTruthy();
-  });
+  }));
 
   it('login method authentication', () => {
     component.loginForm.controls.email.setValue('bruno@email.com');
