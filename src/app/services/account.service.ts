@@ -22,4 +22,10 @@ export class AccountService {
 
     return null;
   }
+
+  // Function to update or create new User's account details with JWT authentication token and error handling
+  addAccountDetails(payload: Customer): Observable<any> {
+
+    return null;
+  }
 }
