@@ -21,7 +21,7 @@ In order to increase their product consumers Organic world needs a solution that
 
 ## The roles in this application are
 
-- Consumer: View differents products available in store and buy directly through online transaction
+- Customer: View differents products available in store and buy directly through online transaction
 
 ## TECH STACK
 
@@ -44,8 +44,9 @@ In order to increase their product consumers Organic world needs a solution that
      - GET    - http://localhost:8761/products/search/{id}  - get a particular product
 
   2. For the customers('Authorization' header with Bearer token required)
-     - POST   - http://localhost:8761/customers             - update a customer details
-     - GET    - http://localhost:8761/customers?email=      - get all existing enquries
+     - PUT    - http://localhost:8761/customers/:id         - update customer details
+     - GET    - http://localhost:8761/customers?email=      - get a customer using email
+     - POST   - http://localhost:8761/customers             - add a customer
 
   3. For Order('Authorization' header with Bearer token required)
      - POST   - http://localhost:8761/orders                - save a new order
