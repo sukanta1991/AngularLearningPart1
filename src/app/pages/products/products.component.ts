@@ -30,7 +30,7 @@ export class ProductsComponent implements OnInit {
 
   // Function to add the product to cart using a sessionStorage item 'cart'
   // Convert the given value from Product to cartProduct type
-  add(item: Product) {
+  addProduct(item: Product) {
 
   }
 }

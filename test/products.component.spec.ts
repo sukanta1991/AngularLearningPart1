@@ -33,19 +33,19 @@ describe('ProductsComponent', () => {
     expect(component).toBeTruthy();
   }));
 
-  it('should have add function', async( () => {
-    expect(component.add).toBeTruthy();
+  it('should have addProduct method', async( () => {
+    expect(component.addProduct).toBeTruthy();
   }));
 
-  it('should have changeQuantitiy function', async( () => {
+  it('should have changeQuantity method', async( () => {
     expect(component.changeQuantity).toBeTruthy();
   }));
 
-  it('should have routeAnalyser function', async( () => {
+  it('should have routeAnalyser method', async( () => {
     expect(component.routeAnalyser).toBeTruthy();
   }));
 
-  it('add method should add to sessionStorage item "cart" ', async( () => {
+  it('addProduct method should add to sessionStorage item "cart" ', async( () => {
     const product: Product = {
       id: '11',
       image: '../../../assets/images/Green apple.jpeg',
@@ -54,12 +54,9 @@ describe('ProductsComponent', () => {
       description: '4pcs',
       price: 266,
     };
-    component.add(product);
+    component.addProduct(product);
     const cart: CartProduct[] = JSON.parse(sessionStorage.getItem('cart'));
     expect(cart[cart.length - 1].productName).toEqual(product.name);
   }));
 
-  it('should have routeAnalyser function', async( () => {
-    expect(component.routeAnalyser).toBeTruthy();
-  }));
 });

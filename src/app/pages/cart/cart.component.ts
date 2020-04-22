@@ -27,17 +27,17 @@ export class CartComponent implements OnInit {
   }
 
   // Function to update quantity when changed
-  update() {
+  updateQuantity() {
 
   }
 
   // Function to calculate total and subtotal
-  calculate() {
+  calculateTotal() {
 
   }
 
   // Function to remove the product of given index
-  remove(index) {
+  removeProduct(index) {
 
   }
 

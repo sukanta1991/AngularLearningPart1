@@ -46,44 +46,44 @@ describe('CartComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have calculate method', () => {
-    expect(component.calculate).toBeTruthy();
+  it('should have calculateTotal method', () => {
+    expect(component.calculateTotal).toBeTruthy();
   });
 
   it('should have getCart method', () => {
     expect(component.getCart).toBeTruthy();
   });
 
-  it('should have remove method', () => {
-    expect(component.remove).toBeTruthy();
+  it('should have removeProduct method', () => {
+    expect(component.removeProduct).toBeTruthy();
   });
 
-  it('should have update method', () => {
-    expect(component.update).toBeTruthy();
+  it('should have updateQuantity method', () => {
+    expect(component.updateQuantity).toBeTruthy();
   });
 
   it('should have checkOut method', () => {
     expect(component.checkOut).toBeTruthy();
   });
 
-  it('calculate method calculates total and subTotal', () => {
+  it('calculateTotal method calculates total and subTotal', () => {
     component.ngOnInit();
-    component.calculate();
+    component.calculateTotal();
     expect(component.total).toEqual(4486);
     expect(component.subTotal[0]).toEqual(3430);
     expect(component.subTotal[1]).toEqual(1056);
   });
 
-  it('remove method to remove first item in cart', () => {
+  it('removeProduct method to remove first item in cart', () => {
     component.ngOnInit();
-    component.remove(0);
+    component.removeProduct(0);
     expect(component.total).toEqual(1056);
     expect(component.subTotal[0]).toEqual(1056);
   });
 
-  it('remove method to remove an item in cart', () => {
+  it('removeProduct method to remove an item in cart', () => {
     component.ngOnInit();
-    component.remove(1);
+    component.removeProduct(1);
     expect(component.total).toEqual(3430);
     expect(component.subTotal[0]).toEqual(3430);
   });
