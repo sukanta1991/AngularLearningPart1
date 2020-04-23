@@ -11,11 +11,7 @@ export class AuthGuardService implements CanActivate {
 
   // Implement 'canActivate' method for Route Guard
   canActivate(): boolean {
-    if (sessionStorage.getItem('token') !== null) {
-      return true;
-    } else {
-      this.router.navigate(['']);
-      return false;
-    }
+
+    return null;
   }
 }
