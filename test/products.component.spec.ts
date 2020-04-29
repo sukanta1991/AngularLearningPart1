@@ -33,15 +33,15 @@ describe('ProductsComponent', () => {
     expect(component).toBeTruthy();
   }));
 
-  it('should have addProduct method', async( () => {
+  it('should have addProduct function', async( () => {
     expect(component.addProduct).toBeTruthy();
   }));
 
-  it('should have changeQuantity method', async( () => {
+  it('should have changeQuantitiy function', async( () => {
     expect(component.changeQuantity).toBeTruthy();
   }));
 
-  it('should have routeAnalyser method', async( () => {
+  it('should have routeAnalyser function', async( () => {
     expect(component.routeAnalyser).toBeTruthy();
   }));
 
@@ -58,5 +58,4 @@ describe('ProductsComponent', () => {
     const cart: CartProduct[] = JSON.parse(sessionStorage.getItem('cart'));
     expect(cart[cart.length - 1].productName).toEqual(product.name);
   }));
-
 });

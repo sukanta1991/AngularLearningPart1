@@ -12,7 +12,6 @@ server.use(bodyParser.json())
 server.use(jsonServer.defaults());
 server.disable('etag');
 
-
 const SECRET_KEY = '123456789'
 
 const expiresIn = '5h'
