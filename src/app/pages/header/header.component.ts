@@ -85,6 +85,8 @@ export class HeaderComponent implements OnInit {
     this.loginService.login(post).subscribe((data) => {
       sessionStorage.setItem('token', data.access_token);
       this.isLoggedIn = true;
+      $(document.body).removeClass('modal-open');
+      $('.modal-backdrop').remove();
       this.accountService.getAccountDetails(post.email).subscribe((details) => {
         if (details[0] === undefined) {
           this.accountService.addAccountDetails(this.user).subscribe();
