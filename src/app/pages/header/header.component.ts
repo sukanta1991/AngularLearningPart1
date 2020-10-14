@@ -109,7 +109,6 @@ export class HeaderComponent implements OnInit {
     this.hide = true;
     $(document.body).removeClass('modal-open');
     $('.modal-backdrop').remove();
-    this.openModal.nativeElement.click();
   }
 
   // Function to clear all sessionStorage  items and reload to landing page

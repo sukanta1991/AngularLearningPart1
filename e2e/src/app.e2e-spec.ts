@@ -74,6 +74,8 @@ describe('OrganicWorld App', () => {
     expect(button.isEnabled()).toBeTruthy();
     button.click();
     browser.sleep(2000);
+    element(By.css('[data-target="#loginModal"]')).click();
+    browser.sleep(2000);
     browser.driver.switchTo().activeElement();
     const loginButton = element(by.partialButtonText('Login'));
     expect(loginButton.isEnabled()).toBeFalsy();
@@ -81,6 +83,7 @@ describe('OrganicWorld App', () => {
     element(by.css('input[id="loginPasswordId"]')).sendKeys('johnnny');
     expect(loginButton.isEnabled()).toBeTruthy();
     loginButton.click();
+    browser.sleep(1000);
     expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + '#/products/all');
   });
 
